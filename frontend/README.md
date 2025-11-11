@@ -105,7 +105,7 @@ pnpm install
 pnpm dev
 ```
 
-应用将在 `http://localhost:3000` 启动。
+应用将在 `http://localhost:3000` 启动
 
 ### 构建生产版本
 
@@ -189,35 +189,11 @@ pnpm typecheck
 
 ### 开发环境代理
 
-项目支持通过环境变量配置 API 代理：
-
-```bash
-# .env 或命令行
-ENABLE_API_PROXY=true
-API_TARGET=http://localhost:8080
-```
-
-配置详见 `nuxt.config.ts`:
-
-```typescript
-vite: {
-  server: {
-    proxy: process.env.ENABLE_API_PROXY === 'true'
-      ? {
-          '/api': {
-            target: process.env.API_TARGET || 'http://localhost:8080',
-            changeOrigin: true,
-            rewrite: (path) => path.replace(/^\/api/, '')
-          }
-        }
-      : undefined
-  }
-}
-```
+编辑 `.env` 文件，默认转发到 `localhost`，需自行配置后端 ip：
 
 ### 生产环境
 
-生产环境中，前端静态文件通过 Nginx 等 Web 服务器代理到后端 API。
+生产环境中，前端静态文件通过 Nginx 等 Web 服务器代理到后端 API
 
 ## UI 设计
 
