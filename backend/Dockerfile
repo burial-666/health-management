@@ -20,7 +20,8 @@ RUN mkdir -p ~/.gradle && \
     echo "    }" >> ~/.gradle/init.gradle && \
     echo "}" >> ~/.gradle/init.gradle
 
-RUN ./gradlew dependencies --no-daemon
+RUN --mount=type=cache,target=/root/.gradle \
+    ./gradlew dependencies --no-daemon
 COPY src ./src
 
 # Run spotless check and build
