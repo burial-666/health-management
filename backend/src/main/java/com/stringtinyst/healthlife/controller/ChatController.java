@@ -1,6 +1,7 @@
 package com.stringtinyst.healthlife.controller;
 
 import com.alibaba.cloud.ai.dashscope.chat.DashScopeChatModel;
+import com.stringtinyst.healthlife.config.AiPromptTemplate;
 import com.stringtinyst.healthlife.pojo.Result;
 import com.stringtinyst.healthlife.utils.JwtUtils;
 import com.stringtinyst.healthlife.utils.UserChatSessionManager;
@@ -31,6 +32,7 @@ public class ChatController {
 
     ChatClient chatClient =
         ChatClient.builder(dashScopeChatModel)
+            .defaultSystem(AiPromptTemplate.SYSTEM_PROMPT)
             .defaultAdvisors(new MessageChatMemoryAdvisor(chatMemory))
             .build();
 
@@ -66,6 +68,7 @@ public class ChatController {
     ChatMemory chatMemory = sessionManager.getChatMemory(userId);
     ChatClient chatClient =
         ChatClient.builder(dashScopeChatModel)
+            .defaultSystem(AiPromptTemplate.SYSTEM_PROMPT)
             .defaultAdvisors(new MessageChatMemoryAdvisor(chatMemory))
             .build();
 
