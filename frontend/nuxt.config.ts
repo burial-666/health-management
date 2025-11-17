@@ -60,6 +60,7 @@ export default defineNuxtConfig({
     '/body-data': { ssr: false },
     '/diet': { ssr: false },
     '/exercise': { ssr: false },
+    '/sleep': { ssr: false },
     '/profile': { ssr: false },
 
     // 将 /api 请求代理到后端服务器
@@ -78,7 +79,8 @@ export default defineNuxtConfig({
   },
 
   icon: {
-    serverBundle: 'local',
+    provider: 'iconify',
+    serverBundle: 'auto',
     clientBundle: {
       scan: true,
       sizeLimitKb: 512

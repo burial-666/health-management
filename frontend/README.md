@@ -16,9 +16,9 @@
 
 ### 状态管理与数据请求
 
-- **Pinia** - Vue 官方状态管理库
+- **useState** - Nuxt 内置的状态管理
 - **useFetch** - Nuxt 内置的数据请求组合式函数
-- **VueUse** - Vue 组合式 API 工具集
+- **useCookie** - Nuxt 内置的 Cookie 管理
 
 ### 图表与可视化
 
@@ -48,7 +48,8 @@ health-management/
 │   │   ├── YearMonthSelect.vue       # 年月选择器
 │   │   ├── QuickBodyDataDialog.vue   # 快速记录体重
 │   │   ├── QuickDietDialog.vue       # 快速记录饮食
-│   │   └── QuickExerciseDialog.vue   # 快速记录运动
+│   │   ├── QuickExerciseDialog.vue   # 快速记录运动
+│   │   └── QuickSleepDialog.vue      # 快速记录睡眠
 │   ├── composables/
 │   │   ├── useAuth.ts                # 认证状态管理
 │   │   └── useECharts.ts             # ECharts 配置
@@ -57,8 +58,6 @@ health-management/
 │   │   └── default.vue               # 默认布局（导航栏）
 │   ├── middleware/
 │   │   └── auth.ts                   # 认证中间件
-│   ├── plugins/
-│   │   └── auth.client.ts            # 客户端认证插件
 │   ├── pages/
 │   │   ├── index.vue                 # 首页（预渲染）
 │   │   ├── login.vue                 # 登录/注册（预渲染）
@@ -66,8 +65,11 @@ health-management/
 │   │   ├── body-data.vue             # 身体数据（CSR）
 │   │   ├── diet.vue                  # 饮食管理（CSR）
 │   │   ├── exercise.vue              # 运动管理（CSR）
+│   │   ├── sleep.vue                 # 睡眠管理（CSR）
 │   │   ├── chat.vue                  # AI 咨询（CSR）
 │   │   └── profile.vue               # 个人中心（CSR）
+│   ├── plugins/
+│   │   └── auth.client.ts            # 客户端认证插件
 │   ├── types/
 │   │   └── index.ts                  # TypeScript 类型定义
 │   ├── utils/
@@ -191,7 +193,7 @@ pnpm typecheck
 
 ### 开发环境代理
 
-编辑 `.env` 文件，默认转发到 `localhost`，需自行配置后端 ip：
+编辑 `.env` 文件，默认转发到 `localhost`，需自行配置后端 ip
 
 ### 生产环境
 

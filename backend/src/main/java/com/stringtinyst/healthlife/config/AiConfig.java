@@ -52,7 +52,7 @@ public class AiConfig {
   @Bean
   public ChatClient chatClient(ChatClient.Builder builder) {
     return builder
-        .defaultSystem("你是经验丰富的健康生活专家，能提供饮食与运动建议")
+        .defaultSystem(AiPromptTemplate.SYSTEM_PROMPT)
         .defaultAdvisors(new MessageChatMemoryAdvisor(chatMemory))
         .build();
   }
